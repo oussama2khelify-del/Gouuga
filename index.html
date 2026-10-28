@@ -1,1 +1,867 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050817">
+<title>The Time Machine | For Gouga ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap');
+
+:root {
+  --gold: #e7c58b;
+  --cream: #fff0d7;
+  --night: #050817;
+  --muted: #b8b8cc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 25px; }
+
+body {
+  background: var(--night);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+
+#sky {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 7%;
+  z-index: 5;
+}
+
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.music-btn {
+  border: 1px solid #e7c58b55;
+  border-radius: 30px;
+  padding: 9px 15px;
+  background: #090d20bb;
+  color: var(--cream);
+  font: inherit;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.music-btn:hover { background: #29213a; }
+
+section {
+  padding: 100px 22px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  background:
+    radial-gradient(ellipse at 50% 48%, #26304c66 0%, transparent 55%),
+    linear-gradient(180deg, #050817 0%, #0a1026 72%, #050817 100%);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.clock-wrap {
+  width: 190px;
+  height: 190px;
+  border: 1px solid #d6ad69;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 32px;
+  box-shadow: 0 0 35px #d6ad6920, inset 0 0 30px #d6ad6910;
+  animation: breathe 5s ease-in-out infinite;
+}
+
+.clock-wrap::before, .clock-wrap::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #d6ad6944;
+  border-radius: 50%;
+}
+.clock-wrap::before { inset: 9px; }
+.clock-wrap::after { inset: -8px; border-style: dashed; }
+
+.clock {
+  font-size: 90px;
+  filter: drop-shadow(0 0 18px #d6ad6966);
+}
+
+h1 {
+  font-size: clamp(36px, 9vw, 66px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-shadow: 0 0 35px #d6ad6922;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.hero .script {
+  font-size: clamp(35px, 7vw, 49px);
+  margin: 15px 0;
+}
+
+.intro-text {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 17px;
+  max-width: 350px;
+  margin: 10px auto 32px;
+}
+
+.gold-btn {
+  border: 1px solid var(--gold);
+  background: linear-gradient(120deg, #b68b4c15, #f0d49a12);
+  color: var(--cream);
+  padding: 15px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.gold-btn:hover {
+  background: var(--gold);
+  color: #090c18;
+  box-shadow: 0 0 30px #e7c58b33;
+  transform: translateY(-3px);
+}
+
+.scroll-note {
+  margin-top: 45px;
+  font-size: 10px;
+  color: #898da8;
+  letter-spacing: 3px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.divider {
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 25px auto;
+}
+
+.chapter {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 11px;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.section-text {
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.memories {
+  background: linear-gradient(180deg, #080c1b, #0c1124 50%, #080c1b);
+}
+
+.memory-grid {
+  max-width: 850px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.memory-card {
+  background: #101529;
+  border: 1px solid #d6ad692b;
+  padding: 10px 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: .4s;
+}
+
+.memory-card:nth-child(even) { transform: translateY(18px); }
+
+.memory-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px) rotate(0deg);
+}
+
+.memory-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: linear-gradient(135deg, #141b31, #30243a);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.memory-card h3 {
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.memory-card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card-number {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 9px;
+}
+
+.photos {
+  background: radial-gradient(ellipse at center, #19203a55, transparent 70%);
+}
+
+.photo-grid {
+  max-width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.photo {
+  padding: 9px 9px 17px;
+  background: #eee6d7;
+  color: #292333;
+  transform: rotate(-2deg);
+  box-shadow: 0 15px 35px #0005;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.photo:nth-child(even) { transform: rotate(2deg) translateY(15px); }
+
+.photo:hover { transform: rotate(0) scale(1.025); }
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #242a40;
+}
+
+.photo p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 23px;
+  padding-top: 12px;
+}
+
+.letter-section {
+  background: radial-gradient(ellipse at center, #201b2e, #070a17 70%);
+  padding-bottom: 130px;
+}
+
+.letter {
+  max-width: 570px;
+  margin: 35px auto 0;
+  padding: 32px 25px;
+  color: #f0dfc4;
+  text-align: left;
+  background:
+    linear-gradient(145deg, #201b2aee, #111525f2);
+  border: 1px solid #d6ad694d;
+  box-shadow: 0 15px 55px #0005;
+  position: relative;
+}
+
+.letter::before {
+  content: "✦";
+  display: block;
+  color: var(--gold);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+.letter p {
+  font-size: 18px;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+.letter-sign {
+  margin-top: 25px;
+  text-align: right;
+  font-size: 29px;
+}
+
+.type-cursor::after {
+  content: "▋";
+  color: var(--gold);
+  animation: blink 1s steps(2) infinite;
+}
+
+.final-scene {
+  min-height: 90svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #171f3b, #050817 75%);
+}
+
+.final-heart {
+  font-size: 42px;
+  margin: 25px 0;
+  animation: heartbeat 2s infinite;
+}
+
+.final-title {
+  font-size: clamp(42px, 10vw, 72px);
+}
+
+footer {
+  padding: 30px 15px;
+  text-align: center;
+  color: #7d819b;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #02040eee;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 22px;
+}
+
+#viewer.open { display: flex; }
+
+.viewer-inner {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+#viewer img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border: 1px solid #d6ad6966;
+}
+
+#viewer p { margin: 18px 0; color: var(--cream); }
+
+#viewer button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 25px #d6ad6918; }
+  50% { transform: scale(1.025); box-shadow: 0 0 45px #d6ad6935; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.17); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 480px) {
+  header { padding: 18px 18px; }
+  .logo { font-size: 25px; }
+  .clock-wrap { width: 155px; height: 155px; }
+  .clock { font-size: 70px; }
+  section { padding: 85px 17px; }
+  .memory-grid, .photo-grid { gap: 12px; }
+  .memory-card { padding: 7px 7px 15px; }
+  .memory-card h3 { font-size: 18px; }
+  .memory-card p { font-size: 13px; }
+  .photo { padding: 6px 6px 12px; }
+  .photo p { font-size: 19px; }
+  .letter { padding: 25px 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="sky"></canvas>
+
+<header>
+  <div class="logo">Gouga ♡</div>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    ♫ Music: OFF
+  </button>
+</header>
+
+<audio id="song" src="song.mp3" loop preload="none"></audio>
+
+<main>
+  <!-- OPENING -->
+  <section class="hero" id="home">
+    <div class="eyebrow">A journey through time</div>
+
+    <div class="clock-wrap">
+      <div class="clock">🕰️</div>
+    </div>
+
+    <h1>THE TIME<br>MACHINE</h1>
+    <div class="script">For Gouga ♡</div>
+
+    <p class="intro-text">
+      Some memories never fade...<br>
+      Because some people never leave<br>
+      our hearts.
+    </p>
+
+    <button class="gold-btn" onclick="beginJourney()">
+      Start our journey &nbsp;→
+    </button>
+
+    <div class="scroll-note">MADE WITH LOVE FOR YOU · ♡</div>
+  </section>
+
+  <!-- TIME TRAVEL -->
+  <section class="reveal" id="timeTravel">
+    <div class="chapter">PROLOGUE · BEFORE NOW</div>
+    <h2 class="section-title">Let's go back...</h2>
+    <div class="script" style="font-size:35px">
+      To the moments that made us
+    </div>
+    <div class="divider"></div>
+    <p class="section-text">
+      If time gave us one little chance to look back,
+      I would choose the moments that still make me smile.
+      Not because they were perfect...
+      but because they became part of my story.
+    </p>
+    <button class="gold-btn" onclick="goTo('memories')">
+      Unlock our memories ♡
+    </button>
+  </section>
+
+  <!-- CONVERSATION MEMORIES -->
+  <section class="memories" id="memories">
+    <div class="reveal">
+      <div class="chapter">CHAPTER I · OUR FIRST MESSAGES</div>
+      <h2 class="section-title">Little pieces of us</h2>
+      <p class="section-text">
+        A few words on a screen...<br>
+        But sometimes, a simple message becomes
+        a memory you want to keep forever. 💌
+      </p>
+    </div>
+
+    <div class="memory-grid">
+
+      <article class="memory-card reveal"
+        onclick="openViewer('memory1.jpg','The beginning ♡')">
+        <img src="memory1.jpg" alt="Our first memory"
+          onerror="this.style.visibility='hidden'">
+        <div class="card-number">MEMORY Nº 01</div>
+        <h3>The beginning ♡</h3>
+        <p>Where our little story began...</p>
+      </article>
+
+      <article class="memory-card reveal"
+        onclick="openViewer('memory2.jpg','A little smile ♡')">
+        <img src="memory2.jpg" alt="A message that made us smile"
+          onerror="this.style.visibility='hidden'">
+        <div class="card-number">MEMORY Nº 02</div>
+        <h3>A little smile ♡</h3>
+        <p>Some messages just feel different.</p>
+      </article>
+
+      <article class="memory-card reveal"
+        onclick="openViewer('memory3.jpg','There for each other ♡')">
+        <img src="memory3.jpg" alt="A special conversation"
+          onerror="this.style.visibility='hidden'">
+        <div class="card-number">MEMORY Nº 03</div>
+        <h3>There for each other ♡</h3>
+        <p>Words that meant more than they seemed.</p>
+      </article>
+
+      <article class="memory-card reveal"
+        onclick="openViewer('memory4.jpg','One to remember ♡')">
+        <img src="memory4.jpg" alt="Another treasured conversation"
+          onerror="this.style.visibility='hidden'">
+        <div class="card-number">MEMORY Nº 04</div>
+        <h3>One to remember ♡</h3>
+        <p>A little piece of our universe.</p>
+      </article>
+
+    </div>
+    <div style="margin-top:55px" class="reveal">
+      <button class="gold-btn" onclick="goTo('photos')">
+        There is more to our story → 
+      </button>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="photos" id="photos">
+    <div class="reveal">
+      <div class="chapter">CHAPTER II · LITTLE PIECES OF US</div>
+      <h2 class="section-title">Our memories ♡</h2>
+      <p class="section-text">
+        Every picture holds a little moment.<br>
+        And every moment has a place in this journey.
+      </p>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo reveal"
+        onclick="openViewer('photo1.jpg','A moment to keep ♡')">
+        <img src="photo1.jpg" alt="A memory together"
+          onerror="this.style.visibility='hidden'">
+        <p>A moment to keep ♡</p>
+      </div>
+
+      <div class="photo reveal"
+        onclick="openViewer('photo2.jpg','A little piece of happiness ♡')">
+        <img src="photo2.jpg" alt="A treasured photo"
+          onerror="this.style.visibility='hidden'">
+        <p>A little piece of happiness ♡</p>
+      </div>
+
+      <div class="photo reveal"
+        onclick="openViewer('photo3.jpg','A memory that stays ♡')">
+        <img src="photo3.jpg" alt="A special memory"
+          onerror="this.style.visibility='hidden'">
+        <p>A memory that stays ♡</p>
+      </div>
+
+      <div class="photo reveal"
+        onclick="openViewer('photo4.jpg','Always worth remembering ♡')">
+        <img src="photo4.jpg" alt="A special photograph"
+          onerror="this.style.visibility='hidden'">
+        <p>Always worth remembering ♡</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:55px">
+      <p class="script" style="font-size:33px">
+        And now... one last thing.
+      </p>
+      <button class="gold-btn" onclick="goTo('letter')">
+        Open your letter 💌
+      </button>
+    </div>
+  </section>
+
+  <!-- FINAL LETTER -->
+  <section class="letter-section" id="letter">
+    <div class="reveal">
+      <div class="chapter">CHAPTER III · FROM MY HEART</div>
+      <h2 class="section-title">The last letter</h2>
+      <p class="section-text">
+        Some things are easier to write than to say.
+        So, for this moment, let me try.
+      </p>
+    </div>
+
+    <div class="letter reveal">
+      <p id="letterText"></p>
+      <div class="letter-sign script" id="signature"></div>
+    </div>
+
+    <button class="gold-btn" style="margin-top:35px"
+      onclick="revealLetter()">
+      Read my letter ♡
+    </button>
+  </section>
+
+  <!-- THE END -->
+  <section class="final-scene" id="ending">
+    <div class="chapter">END OF THIS CHAPTER</div>
+    <h2 class="final-title script">Gouga ♡</h2>
+    <div class="final-heart">♡</div>
+    <p class="section-text">
+      Some memories never become the past...<br>
+      because some people always have<br>
+      a special place in our hearts.
+    </p>
+    <div class="divider"></div>
+    <p class="script" style="font-size:32px">
+      And this is just the beginning...
+    </p>
+    <button class="gold-btn" style="margin-top:35px"
+      onclick="goTo('home')">
+      Travel through time again ↺
+    </button>
+  </section>
+</main>
+
+<footer>
+  A LITTLE UNIVERSE MADE FOR GOUGA ♡
+</footer>
+
+<!-- IMAGE VIEWER -->
+<div id="viewer" onclick="closeViewer()">
+  <div class="viewer-inner" onclick="event.stopPropagation()">
+    <img id="viewerImage" src="" alt="Memory">
+    <p id="viewerCaption"></p>
+    <button onclick="closeViewer()">Close ♡</button>
+  </div>
+</div>
+
+<script>
+/* EDIT YOUR PERSONAL LETTER HERE */
+const letter = `My dear Gouga,
+
+I don't know where to begin, because some feelings are difficult to put into words.
+
+But I wanted to make you something that you could open one day and remember that you are a truly special person to me.
+
+Thank you for the little moments, the conversations, the smiles, and the memories that became part of my life.
+
+Even the simplest moments can mean so much when they are connected to someone who matters.
+
+I don't know what the future has written for us. But I know that I am grateful our paths crossed, and I pray that life brings you happiness, peace, and everything your heart wishes for.
+
+Whatever tomorrow brings, I hope you never forget how precious you are.
+
+This little universe is my way of keeping a few memories safe — a small place where time slows down, and where every page reminds me of you.
+
+Take care of your beautiful heart, Gouga. You deserve so many beautiful things.
+
+And if one day you come back here, I hope this little journey makes you smile again.
+
+With all the affection in my heart,`;
+
+const signature = "Oussama ♡";
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function beginJourney() {
+  goTo("timeTravel");
+}
+
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+
+async function toggleMusic() {
+  if (song.paused) {
+    try {
+      await song.play();
+      musicBtn.textContent = "♫ Music: ON";
+    } catch (error) {
+      musicBtn.textContent = "♫ Add song.mp3";
+      alert("Upload your chosen song as song.mp3 beside index.html, then try again.");
+    }
+  } else {
+    song.pause();
+    musicBtn.textContent = "♫ Music: OFF";
+  }
+}
+
+song.addEventListener("ended", () => {
+  musicBtn.textContent = "♫ Music: OFF";
+});
+
+function openViewer(src, caption) {
+  const viewer = document.getElementById("viewer");
+  const image = document.getElementById("viewerImage");
+  image.src = src;
+  document.getElementById("viewerCaption").textContent = caption;
+  viewer.classList.add("open");
+}
+
+function closeViewer() {
+  document.getElementById("viewer").classList.remove("open");
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeViewer();
+});
+
+/* LETTER TYPEWRITER */
+let letterStarted = false;
+
+function revealLetter() {
+  const textElement = document.getElementById("letterText");
+  const signElement = document.getElementById("signature");
+
+  if (letterStarted) {
+    textElement.textContent = letter;
+    signElement.textContent = signature;
+    textElement.classList.remove("type-cursor");
+    return;
+  }
+
+  letterStarted = true;
+  textElement.textContent = "";
+  textElement.classList.add("type-cursor");
+
+  let index = 0;
+
+  function typeNext() {
+    if (index < letter.length) {
+      textElement.textContent += letter.charAt(index);
+      index++;
+      setTimeout(typeNext, letter.charAt(index - 1) === "\n" ? 250 : 35);
+    } else {
+      textElement.classList.remove("type-cursor");
+      signElement.textContent = signature;
+    }
+  }
+
+  typeNext();
+}
+
+/* REVEAL ELEMENTS AS YOU SCROLL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+/* ANIMATED STARRY SKY */
+const canvas = document.getElementById("sky");
+const ctx = canvas.getContext("2d");
+let stars = [];
+let width = 0;
+let height = 0;
+
+function resizeSky() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  stars = Array.from({ length: width < 600 ? 90 : 160 }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.5 + 0.2,
+    phase: Math.random() * Math.PI * 2,
+    speed: Math.random() * 0.018 + 0.003
+  }));
+}
+
+function drawSky() {
+  ctx.clearRect(0, 0, width, height);
+
+  stars.forEach(star => {
+    star.phase += star.speed;
+    const alpha = 0.25 + (Math.sin(star.phase) + 1) * 0.35;
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 222, 165, ${alpha})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(drawSky);
+}
+
+resizeSky();
+drawSky();
+window.addEventListener("resize", resizeSky);
+</script>
+
+</body>
+</html>
+
